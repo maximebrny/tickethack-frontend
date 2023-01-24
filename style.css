@@ -1,0 +1,43 @@
+#container {
+  display: grid;
+  grid-template-rows: repeat(12, 1fr);
+  grid-template-columns: repeat(12, 1fr);
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  display: grid;
+  background-color: white;
+  grid-row-start: 1; /* Grid header : first line */
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 13;
+}
+
+#logo {
+  display: flex;
+  color: #50a892;
+  font-size: 3.5vh;
+  font-weight: 800;
+  grid-column: 2 / 4;
+  grid-row: 1 / 2;
+}
+
+#menuHeader {
+  display: flex;
+  font-size: 2vh;
+  grid-column: 9 / 10;
+  grid-row: 1 / 2;
+  justify-content: space-around;
+  align-items: center;
+}
+
+a:link {
+  text-decoration: none; /* pour supprimer l'underline */
+  color: #363739; /* inherit pour supprimer la couleur bleue */
+}
+
+a:visited {
+  text-decoration: none;
+  color: #363739; /* inherit pour supprimer la couleur bleue */
+}
