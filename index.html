@@ -10,13 +10,29 @@
     <link rel="stylesheet" href="style.css">
     <title>Tickethack</title>
   </head>
-  <div id="container">
+
+  <div id="containerHeader">
     <header>
       <div id="logo" a href="index.html">Tickethack</a></div>
       <div id="menuHeader"> <a href="cart.html">Cart</a> <a href="bookings.html">Bookings</a> </div>
     </header>
-  <body>
-
-  </body>
   </div>
+
+  <body>
+    <div id="containerBody">
+      <p id="title">Explore the world effortlessly by train!</p>
+      <p id="subtitle">Compare, book and enjoy cheap price for train tickets: your journey starts on Tickethack!</p>
+      <div id="searchBox">
+        <input type="text" id="departureInput" placeholder="Départure"> 
+        <input type="text" id="arrivalInput" placeholder="Arrival">
+        <input type="date" id="dateInput">
+        <button id="btnSearch">Search</button>
+      </div>
+      <div id="resultsBox">
+        <img id="imgTrain" src="images/train.png">
+        <p id="resultsText"> It's time to book your future trip.</p>
+      </div>
+    </div>
+  </body>
+  
 </html>
