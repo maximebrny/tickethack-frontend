@@ -111,6 +111,7 @@ body {
   border-radius: 10px;
   box-shadow: 5px 5px 5px #50a892;
   color: #50a892;
+  overflow: scroll;
 }
 
 #departureInput {
@@ -126,6 +127,11 @@ body {
 #departureInput:hover {
   background-color: lightgrey;
 }
+#departureInput:focus {
+  font-weight: bold;
+  outline: none !important;
+  border-color: #50a892;
+}
 
 #arrivalInput {
   display: flex;
@@ -138,6 +144,12 @@ body {
 }
 #arrivalInput:hover {
   background-color: lightgrey;
+}
+
+#arrivalInput:focus {
+  font-weight: bold;
+  outline: none !important;
+  border-color: #50a892;
 }
 
 input {
@@ -169,11 +181,42 @@ input {
   justify-content: center;
   align-items: center;
   font-family: "Poppins", sans-serif;
+  font-weight: bold;
   color: white;
   margin-top: 30px;
+  cursor: pointer;
 }
 
 #btnSearch:hover {
+  background-color: #00ba8e;
+}
+
+.litrips {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f1f1;
+  padding: 15px;
+  margin: 15px;
+  border-radius: 10px;
+}
+
+.bookbtn {
+  display: flex;
+  border-radius: 10px;
+  background-color: #50a892;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  font-weight: bold;
+  margin-left: 1.7vw;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.bookbtn:hover {
   background-color: #00ba8e;
 }
 
