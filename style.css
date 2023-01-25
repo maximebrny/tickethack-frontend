@@ -36,22 +36,18 @@ header {
 /*Lien menu header */
 a:link {
   text-decoration: none; /* pour supprimer l'underline */
-  color: #363739; /* supprimer la couleur bleue du lien*/
+  color: #50a892; /* supprimer la couleur bleue du lien*/
 }
-z
 
 /*Lien menu header */
 a:visited {
+  color: #50a892; /* supprimer la couleur bleue du lien */
   text-decoration: none;
-  color: #363739; /* supprimer la couleur bleue du lien */
 }
 
 body {
   font-family: "Poppins", sans-serif;
   display: grid;
-  background: url("images/background.jpg");
-  background-size: cover;
-  background-position: center;
   margin: 0%;
   padding: 0%;
   grid-column: 1 / 13;
@@ -82,12 +78,27 @@ body {
   margin-top: 5px;
 }
 
-#containerBody {
+#containerBodyIndex {
   display: grid;
   grid-template-rows: repeat(12, 1fr);
   grid-template-columns: repeat(12, 1fr);
   font-family: "Poppins", sans-serif;
   margin: 0%;
+  background: url("images/background.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#containerBodyCart {
+  display: grid;
+  grid-template-rows: repeat(12, 1fr);
+  grid-template-columns: repeat(12, 1fr);
+  font-family: "Poppins", sans-serif;
+  margin: 0%;
+  background-color: lightgrey;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
 }
 
 #searchBox {
@@ -192,6 +203,22 @@ input {
   background-color: #00ba8e;
 }
 
+#btnPurchase {
+  display: flex;
+  border-radius: 10px;
+  height: 40px;
+  width: 20%;
+  background-color: #50a892;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  color: white;
+  margin-top: 10px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
 .litrips {
   display: flex;
   list-style-type: none;
@@ -232,4 +259,48 @@ input {
 
 #resultsText {
   text-align: center;
+}
+
+#myCart {
+  grid-column: 3 / 11;
+  grid-row: 3 / 8;
+  background-color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #50a892;
+  text-align: center;
+  font-size: 30px;
+}
+
+#myCartPurchase {
+  grid-column: 3 / 11;
+  grid-row: 8 / 9;
+  background-color: #001648;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: -20px;
+  padding: 10px;
+  color: white;
+  justify-content: space-between;
+  display: inline-flex;
+}
+
+#totalPrice {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+#myCartTotal {
+  margin-left: 20px;
+}
+
+#cart {
+  grid-column: 3 / 11;
+  grid-row: 4 / 8;
+  background-color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #50a892;
+  text-align: center;
+  margin-top: 30px;
 }

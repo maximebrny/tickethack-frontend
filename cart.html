@@ -29,23 +29,31 @@
     />
     <title>Tickethack - Cart</title>
   </head>
-
   <div id="containerHeader">
     <header>
-      <div id="logo">
-        <a
-          href="index.html"
-          class="linkIndex"
-          >Tickethack</a
-        >
-      </div>
+      <div id="logo"><a href="index.html">Tickethack</a></div>
       <div id="menuHeader">
         <a href="cart.html">Cart</a> <a href="bookings.html">Bookings</a>
       </div>
     </header>
   </div>
-
   <body>
-    <script src="script.js"></script>
+    <div id="containerBodyCart">
+      <div id="myCart">
+        <p>My Cart</p>
+      </div>
+      <div id="cart">
+        <p>
+          Not tickets in your cart. 🙁 <br />
+          Why not a trip plan ?
+        </p>
+      </div>
+      <div id="myCartPurchase">
+        <div id="myCartTotal">
+          <p>Total : <span id="totalPrice">0</span></p>
+        </div>
+        <button id="btnPurchase">Purchase 💳</button>
+      </div>
+    </div>
   </body>
 </html>
