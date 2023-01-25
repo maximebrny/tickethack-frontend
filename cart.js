@@ -2,51 +2,22 @@ const BACKEND_URL = "http://localhost:3000";
 
 fetch("http://localhost:3000/bookings")
   .then((response) => response.json())
-  .then((booking) => {
-    booking.forEach((booking) => {
+  .then((bookings) => {
+    bookings.forEach((booking) => {
       const li = document.createElement("li");
       li.setAttribute("class", "litrips");
-      li.textContent = `${booking.departure} > ${booking.arrival} ${moment(
-        booking.time
-      ).format("LT")} ${booking.price}€`;
-      // Button to book a trip, add the trip in the cart
+      li.textContent = `${booking.trip.departure} > ${
+        booking.trip.arrival
+      } ${moment(booking.trip.time).format("LT")} ${booking.trip.price}€`;
+      // Button to delete a booking
       const deleteBtn = document.createElement("button");
       deleteBtn.setAttribute("class", "deleteBtn");
       deleteBtn.textContent = "X";
+      deleteBtn.addEventListener("click", () => deleteBooking(booking._id));
+      li.appendChild(deleteBtn);
+      document.querySelector("#cart").appendChild(li);
     });
-    li.appendChild(deleteBtn);
-    document.querySelector("#cart").appendChild(li);
-    updateDeleteTripListener();
   });
-
-function updateDeleteTripListener() {
-  for (let i = 0; i < document.querySelectorAll(".deleteBtn").length; i++) {
-    document
-      .querySelectorAll(".deleteBtn")
-      [i].addEventListener("click", function deleteBooking(id) {
-        fetch(`${BACKEND_URL}/bookings/${id}`, {
-          method: "DELETE",
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            if (data.result) {
-              this.parentNode.remove();
-            }
-          });
-      });
-  }
-}
-
-//Button "Delete"
-const removeBtn = document.createElement("button");
-removeBtn.textContent = "Remove";
-//AddEventListener au button delete
-removeBtn.addEventListener("click", function () {
-  //Delete button
-  deleteBooking(booking._id);
-});
-li.appendChild(removeBtn);
-document.querySelector("#cart").appendChild(li);
 
 // Delete booking function
 function deleteBooking(id) {
@@ -55,8 +26,13 @@ function deleteBooking(id) {
   })
     .then((res) => res.json())
     .then((data) => {
-      // Remove the trip from the cart
-      removeTripFromCart(trip);
+      if (data.message === "Booking deleted successfully") {
+        // Remove the booking's li element from the cart
+        const bookingLi = document.querySelector(`li[data-booking-id="${id}"]`);
+        bookingLi.parentNode.removeChild(bookingLi);
+        // Update the total price
+        updateTotalPrice();
+      }
     })
     .catch((error) => console.log(error));
 }
