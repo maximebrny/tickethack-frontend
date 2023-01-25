@@ -9,7 +9,7 @@ fetch("http://localhost:3000/bookings")
       li.textContent = `${booking.trip.departure} > ${
         booking.trip.arrival
       } ${moment(booking.trip.time).format("LT")} ${booking.trip.price}€`;
-      // Button to delete a booking
+      // Button to delete a booking from a cart
       const deleteBtn = document.createElement("button");
       deleteBtn.setAttribute("class", "deleteBtn");
       deleteBtn.textContent = "X";
