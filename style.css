@@ -33,14 +33,16 @@ header {
   align-items: center;
 }
 
+/*Lien menu header */
 a:link {
   text-decoration: none; /* pour supprimer l'underline */
-  color: #363739; /* inherit pour supprimer la couleur bleue */
+  color: #363739; /* supprimer la couleur bleue du lien*/
 }
 
+/*Lien menu header */
 a:visited {
   text-decoration: none;
-  color: #363739; /* inherit pour supprimer la couleur bleue */
+  color: #363739; /* supprimer la couleur bleue du lien */
 }
 
 body {
