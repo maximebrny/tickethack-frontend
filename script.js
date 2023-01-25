@@ -1,9 +1,3 @@
-// Import moment.js library
-const moment = require("moment");
-
-// Set the locale to French
-moment.locale("fr");
-
 // Tableau vide du panier
 let cart = [];
 const BACKEND_URL = "http://localhost:3000";
