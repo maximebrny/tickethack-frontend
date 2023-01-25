@@ -1,5 +1,3 @@
-// Tableau vide du panier
-let cart = [];
 const BACKEND_URL = "http://localhost:3000";
 
 document.querySelector("#btnSearch").addEventListener("click", function () {
@@ -30,7 +28,19 @@ document.querySelector("#btnSearch").addEventListener("click", function () {
         bookBtn.setAttribute("class", "bookbtn");
         bookBtn.textContent = "Book";
         bookBtn.addEventListener("click", function () {
-          addTripToCart(trip);
+          // Use fetch to send a POST request to the server to create a new booking
+          fetch(`${BACKEND_URL}/bookings/new`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ trip }),
+          })
+            .then((res) => res.json())
+            .then((booking) => {
+              console.log("Booking created:", booking);
+            })
+            .catch((error) => console.log(error));
         });
         li.appendChild(bookBtn);
         document.querySelector("#resultsBox").appendChild(li);
@@ -38,43 +48,3 @@ document.querySelector("#btnSearch").addEventListener("click", function () {
     })
     .catch((error) => console.log(error));
 });
-
-function addTripToCart(trip) {
-  // Ajout des trips au panier (cart)
-  cart.forEach((trip) => {
-    const li = document.createElement("li");
-    li.textContent = `${trip.departure} to ${trip.arrival} at ${moment(
-      trip.time
-    ).format("LT")} for ${trip.price}`;
-    // Button "Delete"
-    const removeBtn = document.createElement("button");
-    removeBtn.textContent = "Remove";
-    // AddEventListener au button delete
-    removeBtn.addEventListener("click", function () {
-      // Delete button
-      removeTripFromCart(trip);
-    });
-    li.appendChild(removeBtn);
-    document.querySelector("#cart").appendChild(li);
-  });
-}
-
-// Update bookings
-// function updateBookings() {
-// }
-
-// Delete trip
-function removeTripFromCart(trip) {
-  // Chercher l'index du trip dans le cart array
-  const index = cart.indexOf(trip);
-  // Remove trip du cart array
-  cart.splice(index, 1);
-  // Remove booking de la collection "bookings"
-  removeBooking(trip);
-  // Update cart display
-  updateCartDisplay();
-}
-
-// Remove booking from "bookings" collection
-// function removeBooking(trip) {
-// }
